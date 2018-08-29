@@ -362,7 +362,9 @@ var zoomPlugin = {
 			options.zoom.mode = 'x';
 
 			chartInstance.zoom._mouseDownHandler = function(event) {
-				chartInstance.zoom._dragZoomStart = event;
+				if (event.which==3) {
+					chartInstance.zoom._dragZoomStart = event;
+				}
 			};
 			node.addEventListener('mousedown', chartInstance.zoom._mouseDownHandler);
 
